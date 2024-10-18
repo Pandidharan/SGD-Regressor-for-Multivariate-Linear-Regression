@@ -8,11 +8,27 @@ To write a program to predict the price of the house and number of occupants in 
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. Load Data
-2. Split Data
-3. Scale Data
-4. Train Model
-5. Evaluate Model
+1. **Import Libraries**: Import necessary libraries, including `numpy`, `pandas`, `matplotlib`, `SGDRegressor`, `MultiOutputRegressor`, `train_test_split`, `mean_squared_error`, and `StandardScaler`.
+
+2. **Load Dataset**: Use `fetch_california_housing()` to load the California Housing dataset.
+
+3. **Select Features and Target Variables**: Extract the first three features (`X`) and define the target (`Y`) by stacking the house price (`data.target`) and number of occupants (feature at index 6).
+
+4. **Split Data into Training and Testing Sets**: Split the input data (`X`) and output data (`Y`) into training and testing sets using `train_test_split()`.
+
+5. **Scale the Data**: Use `StandardScaler` to scale both input features (`X_train` and `X_test`) and the target variables (`Y_train` and `Y_test`) for better performance of the gradient-based optimization algorithm.
+
+6. **Initialize SGD Regressor**: Create an instance of `SGDRegressor` with parameters such as `max_iter` for maximum iterations and `tol` as tolerance.
+
+7. **MultiOutput Regressor**: Wrap the `SGDRegressor` model using `MultiOutputRegressor` to handle multiple output variables simultaneously.
+
+8. **Train the Model**: Fit the model to the scaled training data (`X_train` and `Y_train`).
+
+9. **Predict on Test Data**: Use the trained model to predict on the scaled test set (`X_test`).
+
+10. **Inverse Transform and Evaluate**: Inverse-transform the predictions and actual values to their original scale. Calculate the **Mean Squared Error (MSE)** between the predicted and actual values.
+
+11. **Display Results**: Print the Mean Squared Error and the first 5 predicted values for house prices and the number of occupants.
 
 ## Program:
 ```
